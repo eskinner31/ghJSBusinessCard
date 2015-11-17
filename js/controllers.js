@@ -1,5 +1,7 @@
-app.controller('MainController',function($scope,$firebaseObject,$firebaseAuth,$location,$window){
+app.controller('MainController',function($scope,$firebaseObject,$firebaseAuth,$location,$window,workingAccount){
   var ref = new Firebase("https://ghjsbusinesscard.firebaseio.com");
+  $scope.session = workingAccount;
+
   $scope.changeUrl = function(){
     $location.path('/cardview');
   };
@@ -10,12 +12,13 @@ app.controller('MainController',function($scope,$firebaseObject,$firebaseAuth,$l
       if (error) {
         console.log("Login Failed!", error);
       } else {
-        console.log("Authenticated successfully with payload:", authData);
+        $scope.session.saveSession(authData);
+        //console.log("Authenticated successfully with payload:", authData);
       }
     });
   };
 });
 
-app.controller('CardController',function($scope,$firebaseObject,$firebaseAuth){
-
+app.controller('CardController',function($scope,$firebaseObject,$firebaseAuth,workingAccount){
+  var session = workingAccount;
 });
