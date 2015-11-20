@@ -1,6 +1,6 @@
 var app = angular.module("ghBusinessCard", ["firebase","ngRoute"]);
 
-app.config([ '$routeProvider', '$locationProvider',function($routeProvider, $locationProvider){
+app.config([ '$routeProvider', '$locationProvider',function($routeProvider, $locationProvider, $stateProvider){
   $routeProvider
     .when('/', {
       templateUrl: 'partials/home.html',
