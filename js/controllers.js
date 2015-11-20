@@ -18,5 +18,8 @@ app.controller('CardController',function($scope,$firebaseObject,$firebaseAuth,wo
    ref.onAuth(retrieveSession);
    var authData = ref.getAuth();
    $scope.data = authData;
-
+   $scope.imageUrl = authData.github.profileImageURL;
+   $scope.name = authData.github.displayName;
+   $scope.userName = authData.github.username;
+   console.log($scope.imageUrl);
 });
