@@ -24,21 +24,26 @@ app.controller('CardController',function($scope,$firebaseObject,$firebaseAuth,$h
      htmlUrl : authData.github.cachedUserProfile.html_url,
      location : authData.github.cachedUserProfile.locaiton,
      apiUrl : authData.github.cachedUserProfile.url,
-     key : authData.github.accessToken
+     key : authData.github.accessToken,
    };
-
-   $scope.getRepos = function(){
-     $http({
-       method:'GET',
-       url:'https://api.github.com/users/'+currentUser.userName+'/repos'
-     }).then(function(response){
-        console.log(response);
-     }, function(error){
-        console.log(error);
-     });
-   };
+   angular.element(document).ready(getRepos);
 
    $scope.data = currentUser;
 
-   console.log($scope.imageUrl);
+   console.log(currentUser.repos);
+
+   function getRepos(){
+     $http({
+       method:'GET',
+       url:'https://api.github.com/users/'+currentUser.userName+'/repos?page=2'
+     }).then(function(response){
+        currentUser.repos = response;
+        console.log(response);
+        return response;
+     }, function(error){
+        console.log(error);
+     });
+   }
+
+
 });

@@ -16,3 +16,4 @@ app.config([ '$routeProvider', '$locationProvider',function($routeProvider, $loc
     requireBase: false,
   });
 }]);
+  

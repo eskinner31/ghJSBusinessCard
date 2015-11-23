@@ -1,5 +1,22 @@
 <h1>Check Out Your Business Card</h1>
-<h3>{{name}}</h3>
-<a ng-href="https://www.github.com/{{userName}}">{{userName}}</a>
-<img ng-src="{{imageUrl}}" alt="Picture of Eugene">
-<button ng-click="getRepos()">Check for Eugene's Repos</button>
+<h3>{{data.name}}</h3>
+<a ng-href="https://www.github.com/{{data.userName}}">{{data.userName}}</a>
+<img ng-src="{{data.imageUrl}}" alt="Picture of Eugene">
+<section>
+  <div>
+    <p>Repo Number One</p>
+    <select>
+      <option ng-repeat="repo in data.repos.data" value="repo.name">{{repo.name}}</option>
+    </select>
+
+  </div>
+  <div>
+    <p>Repo Number Two</p>
+
+  </div>
+  <div>
+    <p>Repo Number Three</p>
+
+
+  </div>
+</section>
