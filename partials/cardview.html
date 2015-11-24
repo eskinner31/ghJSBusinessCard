@@ -5,18 +5,26 @@
 <section>
   <div>
     <p>Repo Number One</p>
-    <select>
-      <option ng-repeat="repo in data.repos.data" value="repo.name">{{repo.name}}</option>
+    <select ng-model="repoOne" ng-options="repo.name for repo in data.repos.data">
+      <!-- <option ng-repeat="repo in data.repos.data" value="{{repo}}">{{repo.name}}</option> -->
     </select>
-
+      <p>{{repoOne.description}}</p>
+      <!-- <a href="">{{repo.html_url}}</a> -->
   </div>
   <div>
     <p>Repo Number Two</p>
-
+    <select>
+      <option ng-model="repoTwo" ng-repeat="repo in data.repos.data" value="repo.name">{{repo.name}}</option>
+    </select>
+    <p>{{repo.description}}</p>
+    <!-- <a href="">{{repo.html_url}}</a> -->
   </div>
   <div>
     <p>Repo Number Three</p>
-
-
+    <select>
+      <option ng-mode="repoThree" ng-repeat="repo in data.repos.data" value="repo.name">{{repo.name}}</option>
+    </select>
+    <p>{{repo.description}}</p>
+    <!-- <a href="">{{repo.html_url}}</a> -->
   </div>
 </section>

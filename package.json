@@ -1,0 +1,22 @@
+{
+  "name": "ghjsbusinesscard",
+  "version": "1.0.0",
+  "description": "Front End generated business card",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eskinner31/ghJSBusinessCard.git"
+  },
+  "author": "Eugene Skinner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eskinner31/ghJSBusinessCard/issues"
+  },
+  "homepage": "https://github.com/eskinner31/ghJSBusinessCard#readme",
+  "dependencies": {
+    "nodemon": "^1.8.1"
+  }
+}

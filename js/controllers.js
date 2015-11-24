@@ -45,5 +45,6 @@ app.controller('CardController',function($scope,$firebaseObject,$firebaseAuth,$h
      });
    }
 
+    console.log($scope.repoOne);
 
 });

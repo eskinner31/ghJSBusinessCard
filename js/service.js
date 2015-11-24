@@ -12,6 +12,7 @@ app.service('workingAccount', function($firebaseObject,$firebaseAuth,$location,$
       }
     },
     requestSession: function(){
+      //Need to refactor this so that it waits for data to return on first login before changing URL
       $location.path('/cardview');
       var ref = new Firebase("https://ghjsbusinesscard.firebaseio.com");
       ref.authWithOAuthPopup("github", function(error, authData) {
