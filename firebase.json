@@ -1,0 +1,12 @@
+{
+  "firebase": "ghjsbusinesscard",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ],
+  "routes": {"**":"index.html"
+  }
+
+}

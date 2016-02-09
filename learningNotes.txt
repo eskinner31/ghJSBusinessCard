@@ -1,0 +1,23 @@
+// ref.authWithOAuthPopup("github", function(error, authData) {
+//     $scope.$apply(function(){
+//       if (error) {
+//         console.log("Login Failed!", error);
+//       } else {
+//         console.log('success');
+//         session.setData(authData);
+//         vm.changeUrl();
+//       }
+//   });
+// });
+
+
+The above set of code is a representation of how to trigger the digest loop in Angular especially within a callback.
+
+The error caused when not using $scope.$apply was due to the fact that the click even would execute the function, but would not execute
+the change in url in the call back because the digest loop had already made its turn. When clicked again the loop would register the
+change in url.
+
+When adding $scope.$apply, we are forcing the digest loop to turn once the callback fires.
+
+
+... That being said, using scope and the promisified auth by firebase seems to work around by binding to the $scope.
