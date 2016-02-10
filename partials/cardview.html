@@ -3,6 +3,7 @@
 <a ng-href="https://www.github.com/{{CC.user.userName}}">{{CC.user.userName}}</a>
 <img ng-src="{{CC.user.imageUrl}}" alt="Picture of Eugene">
 <section>
+  <!-- Should be using custom directives for this section -->
   <div>
     <p>Repo Number One</p>
     <select ng-model= "CC.repoOne" ng-options= "repo.name for repo in CC.user.repos.data" ></select>
@@ -21,4 +22,7 @@
     <p>{{CC.repoThree.description}}</p>
     <a ng-href="{{CC.repoThree.html_url}}">Check out {{CC.repoThree.name}}</a>
   </div>
+</section>
+<section>
+  <button type="button" ng-click="CC.saveToDatabase()">Save</button>
 </section>

@@ -35,24 +35,6 @@ app.controller('MainController',['$scope','$firebaseObject','$firebaseAuth','$q'
           console.error("Authentication failed:", error);
         });
       };
-      //
-      // $http({
-      //   method:'GET',
-      //   url:'https://api.github.com/users/'+authData.github.username+'/repos?per_page=500'
-      // }).then(function(response){
-      //    session.setRepoData(response)
-      //    console.log(response);
-      //    vm.changeUrl();
-      // }, function(error){
-      //    console.log(error);
-      // });
-
-      //Creating A Promise.
-      //Emitting an Event when data is present.
-      //Stop Using Firebase and create my own API
-      //Abandon all Hope.
-
-
   }
 
 
@@ -73,5 +55,25 @@ app.controller('CardController',['$scope','$firebaseObject','$firebaseAuth','$ht
       repos: data.repos,
     };
 
-
+    vm.saveToDatabase = function(){
+      var ref = new Firebase("https://ghjsbusinesscard.firebaseio.com");
+      var obj = $firebaseObject(ref);
+      console.log(obj)
+        obj.user = {
+          name : vm.user.name,
+          userName: vm.user.userName,
+          imageUrl: vm.user.imageUrl,
+          repos: vm.user.repos.data,
+          repoOne: vm.repoOne,
+          repoTwo: vm.repoTwo,
+          repoThree: vm.repoThree
+        }
+        console.log("THIS IS OBJ AFTER ADDITIONS: => " + obj);
+        obj.$save().then(function(ref) {
+            ref.key() === obj.$id; // true
+            console.log("success");
+          }, function(error) {
+            console.log("Error:", error);
+          });
+        }
 }
